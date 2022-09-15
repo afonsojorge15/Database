@@ -1,0 +1,11 @@
+<html>
+    <body>
+        <h3>Alterar Concelho e Regiao da instituicao {{ params.get("nome") }}</h3>
+        <form action="update_num_regiao_instituicao" method="post">
+            <p><input type="hidden" name="nome" value="{{ params.get('nome') }}"/></p>
+            <p>A regiao sera alterada consoante o num_concelho selecionado</p>
+            <p>Concelho: <input type="number" name="num_concelho"/></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <h3>Venda Farmacia com numero de venda {{num_venda}}</h3>
+        <form action="adicionar_venda_farmacia_prescricao" method="post">
+            <p><input type="hidden" name="num_venda" value="{{num_venda}}"/></p>
+            <p><input type="hidden" name="num_cedula" value="{{ params.get('num_cedula') }}"/></p>
+            <p><input type="hidden" name="num_doente" value="{{ params.get('num_doente') }}"/></p>
+            <p><input type="hidden" name="data" value="{{ params.get('data') }}"/></p>
+            <p><input type="hidden" name="substancia" value="{{ params.get('substancia') }}"/></p>
+            <p><input type="hidden" name="quant" value="{{ params.get('quant') }}"/></p>
+            <p><input type="hidden" name="flag" value="1"/></p>
+            <p>Data Registo: <input type="text" name="data_registo"/></p>
+            <p>Substancia: {{ params.get('substancia') }}</p>
+            <p>Quantidade: {{ params.get('quant') }}</p>
+            <p>Preco: <input type="number" name="preco"/></p>
+            <p>Instituicao: <input type="text" name="inst"/></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,50 @@
+<doctype html>
+<title>List Prescricao - Flask</title>
+<body>
+  <style>
+  table, th, td {
+    border: 2px solid black;
+  }
+  th, td {
+    text-align: center;
+    padding: 15px;
+  }
+  </style>
+  <h1>Lista Prescricoes</h1>
+  {% if cursor %}
+    <table>
+      <thead>
+        <tr>
+          <th>Num_cedula</th>
+          <th>Num_doente</th>
+          <th>Data</th>
+          <th>Substancia</th>
+          <th>Quantidade</th>
+          <th>Remover</th>
+          <th>Realizar Venda</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+            <td>{{ record[4] }} <a href="editar_quant_prescricao?num_cedula={{record[0]}}&num_doente={{record[1]}}&data={{record[2]}}">Editar</a></td>
+            <td><a href="remover_prescricao?num_cedula={{record[0]}}&num_doente={{record[1]}}&data={{record[2]}}">Remover</a></td>
+            <td><a href="adicionar_venda_farmacia_prescricao_aux?num_cedula={{record[0]}}&num_doente={{record[1]}}&data={{record[2]}}&substancia={{record[3]}}&quant={{record[4]}}">Venda</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <p></p>
+  <p></p>
+  <a href="inserir_prescricao_aux">Inserir Prescricao</a>
+  <p></p>
+  <a href="voltar">Voltar</a>
+  {% else %}
+    <p> Error: failed to retreive data from database!</p>
+  {% endif %}
+</body>
+</doctype>

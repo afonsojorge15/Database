@@ -1,0 +1,58 @@
+<doctype html>
+<title>List Analise - Flask</title>
+<body>
+  <style>
+  table, th, td {
+    border: 2px solid black;
+  }
+  th, td {
+    text-align: center;
+    padding: 15px;
+  }
+  </style>
+  <h1>Lista Analises</h1>
+  {% if cursor %}
+    <table>
+      <thead>
+        <tr>
+          <th>Num_analise</th>
+          <th>Especialidade</th>
+          <th>Num_cedula</th>
+          <th>Num_doente</th>
+          <th>Data</th>
+          <th>Data_registo</th>
+          <th>Nome</th>
+          <th>Quantidade</th>
+          <th>Instituicao</th>
+          <th>Editar</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] }}</td>
+            <td>{{ record[4] }}</td>
+            <td>{{ record[5] }}</td>
+            <td>{{ record[6] }}</td>
+            <td>{{ record[7] }}</td>
+            <td>{{ record[8] }}</td>
+            <td><a href="editar_analise?num_analise={{record[0]}}">Editar</a></td>
+            <td><a href="remover_analise?num_analise={{record[0]}}">Remover</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <p></p>
+  <p></p>
+  <a href="inserir_analise_aux">Inserir Analise</a>
+  <p></p>
+  <a href="voltar">Voltar</a>
+  {% else %}
+    <p> Error: failed to retreive data from database!</p>
+  {% endif %}
+</body>
+</doctype>

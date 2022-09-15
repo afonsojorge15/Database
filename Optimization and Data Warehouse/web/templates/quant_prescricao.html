@@ -1,0 +1,12 @@
+<html>
+    <body>
+        <h3>Alterar quantidade da prescricao</h3>
+        <form action="update_quant_prescricao" method="post">
+            <p><input type="hidden" name="num_cedula" value="{{ params.get('num_cedula') }}"/></p>
+            <p><input type="hidden" name="num_doente" value="{{ params.get('num_doente') }}"/></p>
+            <p><input type="hidden" name="data" value="{{ params.get('data') }}"/></p>
+            <p>Nova Quantidade: <input type="number" name="quant"/></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,10 @@
+<html>
+    <body>
+        <h3>Alterar tipo da instituicao {{ params.get("nome") }}</h3>
+        <form action="update_tipo_instituicao" method="post">
+            <p><input type="hidden" name="nome" value="{{ params.get('nome') }}"/></p>
+            <p>Novo Tipo: <input type="text" name="tipo"/></p>
+            <p><input type="submit" value="Submit"/></p>
+        </form>
+    </body>
+</html>

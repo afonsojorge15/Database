@@ -1,0 +1,35 @@
+<doctype html>
+<title>List Tabela Substancias - Flask</title>
+<body>
+  <style>
+  table, th, td {
+    border: 2px solid black;
+  }
+  th, td {
+    text-align: center;
+    padding: 15px;
+  }
+  </style>
+  <h1>Lista Tabela Substancias do Medico {{num_cedula}} no mes {{mes}}</h1>
+  {% if cursor %}
+    <table>
+      <thead>
+        <tr>
+          <th>Substancias</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for record in cursor %}
+          <tr>
+            <td>{{ record[0] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <p></p>
+  <a href="voltar">Voltar</a>
+  {% else %}
+    <p> Error: failed to retreive data from database!</p>
+  {% endif %}
+</body>
+</doctype>

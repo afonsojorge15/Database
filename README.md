@@ -1,4 +1,4 @@
-# Database
+# Database / Data warehouse
 
 Databases Semester long project - 2020-2021, 1st semester
 
